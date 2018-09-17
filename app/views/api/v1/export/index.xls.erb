@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="User Stories">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Epic</Data></Cell>
+        <Cell><Data ss:Type="String">Story</Data></Cell>
+        <Cell><Data ss:Type="String">Type</Data></Cell>
+        <Cell><Data ss:Type="String">Points</Data></Cell>
+      </Row>
+    <% @stories.each do |story| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= story.epic.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= story.task %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= story.story_type %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= story.points %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

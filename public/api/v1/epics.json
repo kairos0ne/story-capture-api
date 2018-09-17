@@ -1,0 +1,327 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "epics",
+  "apis": [
+    {
+      "path": "/api/v1/users/{user_id}/clients/{client_id}/epics",
+      "operations": [
+        {
+          "summary": "Fetches all Epics for a user ",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "client_id",
+              "type": "integer",
+              "description": "Client Id",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "page",
+              "type": "integer",
+              "description": "Page number",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "per_page",
+              "type": "integer",
+              "description": "Per page option",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            }
+          ],
+          "nickname": "Api::V1::Epics#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/clients/{client_id}/epics",
+      "operations": [
+        {
+          "summary": "Creates a new Epic",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "client_id",
+              "type": "integer",
+              "description": "Client Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "epic[name]",
+              "type": "string",
+              "description": "Name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "epic[summary]",
+              "type": "string",
+              "description": "Name",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 201,
+              "responseModel": null,
+              "message": "Created"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Epics#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/clients/{client_id}/epics/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a single Epic for a client ",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "client_id",
+              "type": "integer",
+              "description": "Client Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Epic Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            }
+          ],
+          "nickname": "Api::V1::Epics#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/clients/{client_id}/epics/{id}",
+      "operations": [
+        {
+          "summary": "Updates an Epic",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "client_id",
+              "type": "integer",
+              "description": "Client Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Epic Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "epic[name]",
+              "type": "string",
+              "description": "Name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "epic[summary]",
+              "type": "string",
+              "description": "Name",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 201,
+              "responseModel": null,
+              "message": "Created"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Epics#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/clients/{client_id}/epics/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing Epic item",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "client_id",
+              "type": "integer",
+              "description": "Client Id",
+              "required": false
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Epic Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Epics#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

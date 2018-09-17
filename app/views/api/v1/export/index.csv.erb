@@ -1,0 +1,6 @@
+ 
+<%- headers = ['Epic', 'Story', 'Type', 'Points'] -%>
+<%= CSV.generate_line headers %>
+<%- @stories.each do |story| -%>
+<%= CSV.generate_line([story.epic.name, story.task, story.story_type, story.points ]) -%>
+<%- end -%>

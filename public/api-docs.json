@@ -4,52 +4,16 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
-      "path": "/api/v1/bookings.{format}",
-      "description": "Booking Management"
+      "path": "/api/v1/stories.{format}",
+      "description": "Story Management"
     },
     {
-      "path": "/api/v1/parkings.{format}",
-      "description": "Parking Management"
+      "path": "/api/v1/epics.{format}",
+      "description": "Epics Management"
     },
     {
-      "path": "/api/v1/museums.{format}",
-      "description": "Museums Management"
-    },
-    {
-      "path": "/api/v1/bars.{format}",
-      "description": "Bars Management"
-    },
-    {
-      "path": "/api/v1/restaurants.{format}",
-      "description": "Restaurants Management"
-    },
-    {
-      "path": "/api/v1/parks.{format}",
-      "description": "Parks Management"
-    },
-    {
-      "path": "/api/v1/clubs.{format}",
-      "description": "Clubs Management"
-    },
-    {
-      "path": "/api/v1/places.{format}",
-      "description": "Places Management"
-    },
-    {
-      "path": "/api/v1/info.{format}",
-      "description": "Places Management"
-    },
-    {
-      "path": "/api/v1/destinations.{format}",
-      "description": "Destination Management"
-    },
-    {
-      "path": "/api/v1/todos.{format}",
-      "description": "Todo Management"
-    },
-    {
-      "path": "/api/v1/trips.{format}",
-      "description": "Trip Management"
+      "path": "/api/v1/clients.{format}",
+      "description": "Clients Management"
     },
     {
       "path": "/api/v1/users.{format}",
@@ -70,8 +34,8 @@
   ],
   "authorizations": null,
   "info": {
-    "title": "Tripstore API",
-    "description": "The following documentation illustrates the correct use of the Tripstore API",
+    "title": "Strory Capture API",
+    "description": "The following documentation illustrates the correct use of the Strory Capture API",
     "contact": "Scott Davies",
     "license": "MIT",
     "licenseUrl": "https://opensource.org/licenses/MIT"

@@ -1,0 +1,16 @@
+<table border="1">
+  <tr>
+    <th>Epic</th>
+    <th>Story</th>
+    <th>Type</th>
+    <th>Points</th>
+  </tr>
+  <% @stories.each do |story| %>
+  <tr>
+    <td><%= story.epic.name %></td>
+    <td><%= story.task %></td>
+    <td><%= story.story_type %></td>
+    <td><%= story.points %></td>
+  </tr>
+  <% end %>
+</table>

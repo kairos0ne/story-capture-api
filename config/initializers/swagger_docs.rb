@@ -15,8 +15,8 @@ Swagger::Docs::Config.register_apis({
       # :parent_controller => ApplicationController,
       :attributes => {
         :info => {
-          "title" => "Tripstore API",
-          "description" => "The following documentation illustrates the correct use of the Tripstore API",
+          "title" => "Strory Capture API",
+          "description" => "The following documentation illustrates the correct use of the Strory Capture API",
           "contact" => "Scott Davies",
           "license" => "MIT",
           "licenseUrl" => "https://opensource.org/licenses/MIT"

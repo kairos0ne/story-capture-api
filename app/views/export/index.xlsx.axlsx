@@ -1,0 +1,13 @@
+# app/views/export/index.xlsx.axlsx
+
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Stories") do |sheet|
+  # this is the head row of your spreadsheet
+  sheet.add_row %w(epic story notes points)
+  
+  # each user is a row on your spreadsheet
+  @stories.each do |story|
+    sheet.add_row [story.epic.name, story.task, story.points]
+  end
+end

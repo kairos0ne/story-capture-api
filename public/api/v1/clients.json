@@ -1,0 +1,302 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "clients",
+  "apis": [
+    {
+      "path": "/api/v1/users/{user_id}/clients",
+      "operations": [
+        {
+          "summary": "Fetches all Clients for a user ",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "page",
+              "type": "integer",
+              "description": "Page number",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "per_page",
+              "type": "integer",
+              "description": "Per page option",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            }
+          ],
+          "nickname": "Api::V1::Clients#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/clients",
+      "operations": [
+        {
+          "summary": "Creates a new Client",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "client[name]",
+              "type": "string",
+              "description": "Name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "client[description]",
+              "type": "string",
+              "description": "Description",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 201,
+              "responseModel": null,
+              "message": "Created"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Clients#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/clients/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a single Client item",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Client Id",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "User",
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Clients#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/clients/{id}",
+      "operations": [
+        {
+          "summary": "Updates a Client",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Client Id",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "client[name]",
+              "type": "string",
+              "description": "Name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "client[description]",
+              "type": "string",
+              "description": "Description",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 201,
+              "responseModel": null,
+              "message": "Created"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Clients#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/clients/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing Client item",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Client Id",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Clients#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

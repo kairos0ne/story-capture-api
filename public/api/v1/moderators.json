@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Creates a Admin user",
-          "notes": "Only admins have access to this endpoint",
           "parameters": [
             {
               "paramType": "header",
@@ -83,6 +82,7 @@
               "message": "Unprocessable Entity"
             }
           ],
+          "notes": "Only admins have access to this endpoint",
           "nickname": "Api::V1::Moderators#create",
           "method": "post"
         }

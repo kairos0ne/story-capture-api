@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Fetches all User ",
-          "notes": "This lists all the active users. Only users with admin access have the rights to view this endpoint. eg http://localhost:3000/api/v1/users?page=1&per_page=2",
           "parameters": [
             {
               "paramType": "header",
@@ -50,6 +49,7 @@
               "message": "Forbidden"
             }
           ],
+          "notes": "This lists all the active users. Only users with admin access have the rights to view this endpoint. eg http://localhost:3000/api/v1/users?page=1&per_page=2",
           "nickname": "Api::V1::Users#index",
           "method": "get"
         }

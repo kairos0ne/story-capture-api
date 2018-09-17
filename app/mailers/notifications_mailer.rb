@@ -16,6 +16,6 @@ class NotificationsMailer < ApplicationMailer
     def welcome(user)
         @user = user
         mail( :to => @user.email,
-        :subject => 'Welcome to Tripstore.' )
+        :subject => 'Welcome to Stories.' )
     end
 end
