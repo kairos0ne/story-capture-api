@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_12_213223) do
+ActiveRecord::Schema.define(version: 2018_09_26_192024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2018_09_12_213223) do
     t.index ["epic_id"], name: "index_stories_on_epic_id"
   end
 
+  create_table "subtasks", force: :cascade do |t|
+    t.string "task"
+    t.string "task_type"
+    t.integer "points"
+    t.bigint "story_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["story_id"], name: "index_subtasks_on_story_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "token"
@@ -61,4 +71,5 @@ ActiveRecord::Schema.define(version: 2018_09_12_213223) do
   add_foreign_key "clients", "users"
   add_foreign_key "epics", "clients"
   add_foreign_key "stories", "epics"
+  add_foreign_key "subtasks", "stories"
 end

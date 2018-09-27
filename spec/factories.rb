@@ -1,5 +1,11 @@
 # This will guess the User class
 FactoryBot.define do
+  factory :subtask do
+    task "MyString"
+    type ""
+    points 1
+    story nil
+  end
   factory :story do
     task "MyString"
     type ""

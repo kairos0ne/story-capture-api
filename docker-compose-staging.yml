@@ -1,6 +1,5 @@
-version: '3.1'
+version: '3.3'
 services:
-  
   proxy:
     image: kairos0ne/stories-stack-proxy
     networks:
@@ -22,8 +21,6 @@ services:
   
   gui:
     image: kairos0ne/stories-stack-gui
-    ports:
-      - "8080:80"
     networks:
       - nginx
 
@@ -59,8 +56,6 @@ volumes:
 
 networks:
   nginx:
-    driver: overlay
-    attachable: true
   db:
 
 secrets:

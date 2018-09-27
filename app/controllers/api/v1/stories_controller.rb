@@ -11,7 +11,7 @@ module Api
           param :header, :Authorization, :string, :required, "To authorize the requests."
           param :path, :user_id, :integer, :required, "User Id"
           param :path, :client_id, :integer, :required, "Client Id"
-          param :path, :spic_id, :integer, :required, "Epic Id"
+          param :path, :epic_id, :integer, :required, "Epic Id"
           param :query, :page, :integer, :optional, "Page number"
           param :query, :per_page, :integer, :optional, "Per page option"
           response :ok
@@ -96,7 +96,7 @@ module Api
           param :path, :client_id, :integer, :required, "Client Id"
           param :path, :epic_id, :integer, :required, "Epic Id"
           param :form, "story[task]", :string, :required, "Name"
-          param :form, "story[epic_type]", :string, :optional, "Type"
+          param :form, "story[story_type]", :string, :optional, "Type"
           param :form, "story[points]", :string, :optional, "Points"
           response :created
           response :unauthorized
@@ -122,7 +122,7 @@ module Api
           param :path, :epic_id, :integer, :required, "Epic Id"
           param :path, :id, :integer, :required, "Story Id"
           param :form, "story[task]", :string, :required, "Name"
-          param :form, "story[epic_type]", :string, :optional, "Type"
+          param :form, "story[story_type]", :string, :optional, "Type"
           param :form, "story[points]", :string, :optional, "Points"
           response :created
           response :unauthorized
