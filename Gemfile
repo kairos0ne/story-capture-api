@@ -36,6 +36,7 @@ gem 'google_places'
 gem 'figaro'
 gem 'swagger-docs'
 gem 'sendgrid-ruby'
+gem 'jira-ruby'
 
 
 group :development, :test do

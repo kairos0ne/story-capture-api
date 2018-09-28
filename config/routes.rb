@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  
   get "/" => "home#index"
   get '/api' => redirect('/dist/index.html?url=/api-docs.json')
   namespace :api do 
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
       resources :users do 
         # new routes go here 
         resources :clients do
+          resources :projects
           get "/export" => "export#index"
           resources :epics do 
             resources :stories do 

@@ -15,6 +15,10 @@ module Api
         render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json, :status => :forbidden
       end
 
+      # rescue_from JIRA::OauthClient::UninitializedAccessTokenError do
+      #   redirect_to 'https://accounts.atlassian.com/authorize?audience=api.atlassian.com&client_id=LqD8mcIP6oiE1itB4lB4xChOCZWH4iqR&scope=read%3Ajira-user%20read%3Ajira-work%20manage%3Ajira-project%20write%3Ajira-work&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fauth%2Fcallback&state=${YOUR_USER_BOUND_VALUE}&response_type=code&prompt=consent'
+      # end
+
       protected
     
       def render_unauthorized(message)
@@ -23,6 +27,28 @@ module Api
       end
     
       private
+
+      def get_jira_client
+
+        # add any extra configuration options for your instance of JIRA,
+        # e.g. :use_ssl, :ssl_verify_mode, :context_path, :site
+        options = {
+          :site               => 'http://monochrome-development.atlassian.net:443/',
+          :private_key_file   => "rsakey.pem",
+          :rest_base_path     => "/rest/api/3",
+          :consumer_key => 'pgjKXqZD9CZ8OBtr',
+        }
+    
+        @jira_client = JIRA::Client.new(options)
+    
+        # Add AccessToken if authorised previously.
+        if session[:jira_auth]
+          @jira_client.set_access_token(
+            session[:jira_auth]['access_token'],
+            session[:jira_auth]['access_key']
+          )
+        end
+      end
     
       def authenticate_token
         authenticate_with_http_token do |token, options|
