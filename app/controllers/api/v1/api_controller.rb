@@ -38,11 +38,12 @@ module Api
         # add any extra configuration options for your instance of JIRA,
         # e.g. :use_ssl, :ssl_verify_mode, :context_path, :site
         options = {
-          :user => 'Monochrome Support',
-          :password => ENV['API_KEY'],
+          :user => 'Scott',
+          :password => ENV['API_KEY2'],
           :site => 'https://monochrome-development.atlassian.net/',
           :context_path => '',
           :auth_type => :basic,
+          :consumer_key => ENV['CONSUMER_KEY']
         }
     
         @jira_client = JIRA::Client.new(options)
