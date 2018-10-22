@@ -34,20 +34,21 @@ module Api
       private
 
       def get_jira_client
-
+        email = current_user.email
+        token = current_user.jira_token
         # add any extra configuration options for your instance of JIRA,
         # e.g. :use_ssl, :ssl_verify_mode, :context_path, :site
         options = {
-          :user => 'Scott',
-          :password => ENV['API_KEY2'],
+          :username => email,
+          :password => token,
           :site => 'https://monochrome-development.atlassian.net/',
           :context_path => '',
-          :auth_type => :basic,
-          :consumer_key => ENV['CONSUMER_KEY']
+          :auth_type => :basic
         }
     
         @jira_client = JIRA::Client.new(options)
-    
+
+        
         # Add AccessToken if authorised previously.
         if session[:jira_auth]
           @jira_client.set_access_token(
@@ -56,6 +57,13 @@ module Api
           )
         end
       end
+
+      # def authenticate_jira
+      #   user = current_user
+      #   # Construct the http headers
+
+
+      # end
     
       def authenticate_token
         authenticate_with_http_token do |token, options|

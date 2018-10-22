@@ -9,6 +9,7 @@
 User.destroy_all
 
 
-User.create(name: 'admin', email: 'admin@admin.com', admin: 'true', password: '123456')
+User.create(name: 'admin', email: 'support@monochrome.co.uk', admin: 'true', password: '123456')
 User.create(name: 'test', email: 'test@test.com', password: '123456')
 
+Auth.create(client_id: ENV['CLIENT_KEY'], client_secret: ENV['CLIENT_SECRET'], redirect_uri: 'http://localhost:8080/auth/callback' )

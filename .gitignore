@@ -9,3 +9,5 @@ tmp/*
 # Ignore application configuration
 /config/application.yml
 log/test.log
+rsacert.pem
+rsakey.pem

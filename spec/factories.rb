@@ -1,5 +1,10 @@
 # This will guess the User class
 FactoryBot.define do
+  factory :auth do
+    client_id "MyString"
+    client_secret "MyString"
+    redirect_uri "MyString"
+  end
   factory :project do
     project "MyString"
     description "MyString"

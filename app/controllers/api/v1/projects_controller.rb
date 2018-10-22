@@ -8,45 +8,73 @@ module Api
 
       # GET /projects
       def index
-        @projects = @jira_client.Project.all
+        projects = @jira_client.Project.all
+        items = []
+        projects.each do |project|
+          items.push(project.attrs)
+          @projects = items
+        end
 
         render json: @projects
       end
 
-      # GET /projects/1
+      # Get /project
       def show
-        render json: @project
+        if params[:key]
+          project = @jira_client.Project.find(params[:key])
+          @item = project.attrs
+          
+          items = []
+          project.issues.each do |issue|
+            items.push(issue.attrs)
+            @issues = items
+          end
+        begin
+          rescue JIRA::HTTPError => e
+            puts e.response.code
+            puts e.response.message
+            puts e.response.body  
+        end          
+          render :json => {:project => @item, :issues => @issues}.to_json
+        else 
+          render :json => {:error => "You need to provide a key for the project"}.to_json
+        end
       end
 
       # POST /projects
       def create
-        @project = Project.new(project_params)
+        client = @jira_client
+        project = client.Project.build
+        projectKey = params[:project_key]
+        projectType = params[:project_type]
+        projectName = params[:name]
+        projectDescription = params[:description]
 
-        if @project.save
-          render json: @project, status: :created, location: @project
-        else
-          render json: @project.errors, status: :unprocessable_entity
+        begin
+          project.save!({"key" => projectKey, "name" => projectName, "projectTypeKey" => projectType, "description" => projectDescription, "lead" => current_user.name })
+        rescue JIRA::HTTPError => e
+          puts e.response.code
+          puts e.response.message
+          puts e.response.body  
         end
+
+
       end
 
       # PATCH/PUT /projects/1
       def update
-        if @project.update(project_params)
-          render json: @project
-        else
-          render json: @project.errors, status: :unprocessable_entity
-        end
+    
       end
 
       # DELETE /projects/1
       def destroy
-        @project.destroy
+    
       end
 
       private
         # Use callbacks to share common setup or constraints between actions.
         def set_project
-          @project = Project.find(params[:id])
+          
         end
 
         # Only allow a trusted parameter "white list" through.
