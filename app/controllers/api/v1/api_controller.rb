@@ -19,11 +19,6 @@ module Api
         render :json => {:error => "Something went wrong unable to authenticate"}.to_json, :status => :forbidden
       end
 
-      # rescue_from JIRA::HTTPError::JIRA::HTTPError do
-      #   render :json => {:error => "HTTP Error"}.to_json
-      # end
-      
-
       protected
     
       def render_unauthorized(message)

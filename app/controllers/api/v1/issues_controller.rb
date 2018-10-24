@@ -35,7 +35,7 @@ module Api
           render :json => {:error => "You need to provide a key for the issue"}.to_json
         end
       end
-      # POST /projects
+      # POST /issue
       def create
         client = @jira_client
         issue = client.Issue.build
