@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         get "/issues" => "issues#index"
         post "/issues" => "issues#create"
         get "/issue" => "issues#show"
+        post "/assign" => "assign#create"
         get "/issuetypes" => "issuetypes#index"
         get "/jirausers" => "jirausers#index"
         post "/comment" => "comments#create"

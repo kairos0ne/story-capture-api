@@ -82,7 +82,10 @@ module Api
             puts e.response.code
             puts e.response.message
             puts e.response.body  
-          end 
+          end
+          issue.fetch
+          @issue = issue
+          render :json @issue 
         end
       end
 
